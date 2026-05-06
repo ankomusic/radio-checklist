@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checklist YouTube Music — Radio Maracaibo 2006–2026</title>
+  <style>
+    :root{
+      --bg:#0e1117; --panel:#151a23; --panel-2:#1b2230; --text:#e8eefc; --muted:#9fb0ca;
+      --line:#2a3446; --accent:#8bd450; --accent-2:#5cc8ff; --warn:#ffd166; --danger:#ff6b6b;
+      --shadow:0 14px 40px rgba(0,0,0,.25); --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(160deg,#0e1117 0%,#121826 60%,#0b0f16 100%);color:var(--text)}
+    header{position:sticky;top:0;z-index:10;background:rgba(14,17,23,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .wrap{max-width:1220px;margin:0 auto;padding:22px}
+    h1{margin:0 0 8px;font-size:clamp(1.45rem,2.5vw,2.4rem);letter-spacing:-.04em}
+    .subtitle{margin:0;color:var(--muted);line-height:1.5}
+    .toolbar{display:grid;grid-template-columns:1.4fr repeat(3, minmax(150px,.7fr));gap:12px;margin-top:18px}
+    input,select,button{font:inherit;border:1px solid var(--line);border-radius:14px;padding:12px 13px;background:var(--panel);color:var(--text);outline:none}
+    input:focus,select:focus{border-color:var(--accent-2);box-shadow:0 0 0 3px rgba(92,200,255,.13)}
+    button{cursor:pointer;background:var(--panel-2);transition:.18s ease;border-color:#334057}
+    button:hover{transform:translateY(-1px);border-color:var(--accent-2)}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .primary{background:linear-gradient(135deg,#376bff,#5cc8ff);border:0;color:white;font-weight:700}
+    .success{background:linear-gradient(135deg,#2f8f4e,#8bd450);border:0;color:#061208;font-weight:800}
+    .danger{background:linear-gradient(135deg,#aa3030,#ff6b6b);border:0;color:white;font-weight:700}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+    .stat{background:rgba(21,26,35,.8);border:1px solid var(--line);border-radius:var(--radius);padding:15px;box-shadow:var(--shadow)}
+    .stat b{display:block;font-size:1.45rem}.stat span{color:var(--muted);font-size:.9rem}
+    main{max-width:1220px;margin:0 auto;padding:0 22px 40px}
+    .note{background:rgba(255,209,102,.08);border:1px solid rgba(255,209,102,.25);color:#ffefbf;border-radius:var(--radius);padding:14px 16px;margin:18px 0;line-height:1.45}
+    .table-wrap{background:rgba(21,26,35,.82);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:12px 11px;border-bottom:1px solid var(--line);vertical-align:middle;text-align:left}
+    th{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);background:rgba(27,34,48,.96);position:sticky;top:131px;z-index:5}
+    tr:hover td{background:rgba(92,200,255,.04)}
+    .check{width:46px;text-align:center}.song{font-weight:760}.artist{color:#d6e1f5}.small{color:var(--muted);font-size:.9rem}.badge{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);padding:6px 9px;border-radius:999px;font-size:.82rem;white-space:nowrap}.ok{border-color:rgba(139,212,80,.35);color:#bff59b;background:rgba(139,212,80,.07)}.warn{border-color:rgba(255,209,102,.4);color:#ffdf8a;background:rgba(255,209,102,.07)}.adult{border-color:rgba(255,160,64,.38);color:#ffc38a;background:rgba(255,160,64,.07)}.avoid{border-color:rgba(255,107,107,.4);color:#ffb0b0;background:rgba(255,107,107,.07)}
+    a.music{display:inline-flex;align-items:center;text-decoration:none;color:#061208;background:var(--accent);padding:8px 10px;border-radius:12px;font-weight:800;white-space:nowrap}.copybtn{padding:8px 10px;border-radius:12px;font-size:.9rem}.row-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.empty{padding:28px;text-align:center;color:var(--muted)}
+    footer{color:var(--muted);text-align:center;padding:28px 20px 44px;line-height:1.5}
+    @media(max-width:900px){.toolbar{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}th{top:246px}.hide-sm{display:none}table{font-size:.92rem}.row-actions{display:block}.copybtn{margin-top:6px}}
+    @media(max-width:620px){.wrap,main{padding-left:14px;padding-right:14px}.stats{grid-template-columns:1fr}th,td{padding:10px 8px}.artist-col,.year-col{display:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Checklist YouTube Music — Radio Maracaibo 2006–2026</h1>
+      <p class="subtitle">Lista editable para buscar canciones en YouTube Music, marcar descargadas/legalmente obtenidas y verificar clean/radio edit antes de programarlas.</p>
+      <div class="toolbar">
+        <input id="q" placeholder="Buscar canción, artista o género…" />
+        <select id="genre"><option value="">Todos los géneros</option></select>
+        <select id="status"><option value="">Todos los estados clean</option><option value="✅">✅ Apta</option><option value="🟡">🟡 Clean/radio edit</option><option value="🟠">🟠 Tema adulto</option><option value="🔴">🔴 Evitar/revisar</option></select>
+        <select id="checked"><option value="">Todas</option><option value="pending">Pendientes</option><option value="done">Marcadas</option></select>
+      </div>
+      <div class="actions">
+        <button class="primary" id="copyVisible">Copiar visibles en Markdown</button>
+        <button id="copyCSV">Copiar CSV</button>
+        <button class="success" id="downloadCSV">Descargar CSV</button>
+        <button id="selectVisible">Marcar visibles</button>
+        <button class="danger" id="clearChecks">Limpiar checks</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="stats">
+      <div class="stat"><b id="total">0</b><span>Canciones visibles</span></div>
+      <div class="stat"><b id="done">0</b><span>Marcadas</span></div>
+      <div class="stat"><b id="pending">0</b><span>Pendientes visibles</span></div>
+      <div class="stat"><b id="safe">0</b><span>Aptas visibles</span></div>
+    </div>
+    <div class="note"><strong>Nota:</strong> los botones “YouTube Music” abren una búsqueda directa en <code>music.youtube.com</code> con artista + canción. Es más confiable que pegar links fijos, porque evita videos musicales, enlaces caídos, lives o versiones no disponibles por región. Para uso radial, confirma licencia/derechos y usa versiones clean/radio edit cuando aplique.</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th class="check">OK</th><th>Canción</th><th class="artist-col">Artista</th><th>Género</th><th class="year-col">Año</th><th>Clean</th><th>Link</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </main>
+  <footer>Hecho para programación radial: Maracaibo/Zulia · 2006–2026 · Guarda los checks en este navegador.</footer>
+<script>
+const tracks = [
+  {g:'Reggaetón / urbano',t:'Down',a:'R.K.M & Ken-Y',y:'2006',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'Rompe',a:'Daddy Yankee',y:'2006',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'Llamé Pa’ Verte',a:'Wisin & Yandel',y:'2006',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'Machucando',a:'Daddy Yankee',y:'2006',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'Angelito',a:'Don Omar',y:'2006',s:'✅',n:'Apta / tema adulto leve'},
+  {g:'Reggaetón / urbano',t:'No Te Veo',a:'Casa de Leones',y:'2007',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'Sola',a:'Héctor “El Father”',y:'2007',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'Sexy Movimiento',a:'Wisin & Yandel',y:'2008',s:'🟡',n:'Clean / tema sensual'},
+  {g:'Reggaetón / urbano',t:'Na De Na',a:'Angel y Khriz',y:'2008',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'El Amor',a:'Tito El Bambino',y:'2009',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'Mi Cama Huele a Ti',a:'Tito El Bambino ft. Zion & Lennox',y:'2009',s:'🟠',n:'Tema adulto/sensual'},
+  {g:'Reggaetón / urbano',t:'Virtual Diva',a:'Don Omar',y:'2009',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'Taboo',a:'Don Omar',y:'2011',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'Danza Kuduro',a:'Don Omar ft. Lucenzo',y:'2011',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'Dutty Love',a:'Don Omar ft. Natti Natasha',y:'2012',s:'✅',n:'Apta / revisar'},
+  {g:'Reggaetón / urbano',t:'Limbo',a:'Daddy Yankee',y:'2012',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'Algo Me Gusta de Ti',a:'Wisin & Yandel ft. Chris Brown, T-Pain',y:'2012',s:'✅',n:'Apta / revisar'},
+  {g:'Reggaetón / urbano',t:'6 AM',a:'J Balvin ft. Farruko',y:'2013',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'Travesuras',a:'Nicky Jam',y:'2014',s:'🟠',n:'Tema adulto/sensual'},
+  {g:'Reggaetón / urbano',t:'Ay Vamos',a:'J Balvin',y:'2014',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'El Perdón',a:'Nicky Jam, Enrique Iglesias',y:'2015',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'Ginza',a:'J Balvin',y:'2015',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'Hasta el Amanecer',a:'Nicky Jam',y:'2016',s:'🟠',n:'Tema adulto/sensual'},
+  {g:'Reggaetón / urbano',t:'Duele el Corazón',a:'Enrique Iglesias ft. Wisin',y:'2016',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'Shaky Shaky',a:'Daddy Yankee',y:'2016',s:'✅',n:'Apta / revisar'},
+  {g:'Reggaetón / urbano',t:'Despacito',a:'Luis Fonsi, Daddy Yankee',y:'2017',s:'✅',n:'Apta / tema sensual'},
+  {g:'Reggaetón / urbano',t:'Mi Gente',a:'J Balvin, Willy William',y:'2017',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'Chantaje',a:'Shakira ft. Maluma',y:'2017',s:'🟠',n:'Tema adulto/sensual'},
+  {g:'Reggaetón / urbano',t:'Felices los 4',a:'Maluma',y:'2017',s:'🟠',n:'Tema adulto'},
+  {g:'Reggaetón / urbano',t:'Dura',a:'Daddy Yankee',y:'2018',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'X',a:'Nicky Jam, J Balvin',y:'2018',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'Taki Taki',a:'DJ Snake, Selena Gomez, Ozuna, Cardi B',y:'2018',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'China',a:'Anuel AA, Daddy Yankee, Karol G, Ozuna, J Balvin',y:'2019',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'Tusa',a:'Karol G, Nicki Minaj',y:'2019',s:'✅',n:'Apta / revisar'},
+  {g:'Reggaetón / urbano',t:'Otro Trago',a:'Sech, Darell',y:'2019',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'Relación',a:'Sech',y:'2020',s:'✅',n:'Apta / revisar'},
+  {g:'Reggaetón / urbano',t:'Hawái',a:'Maluma',y:'2020',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'Caramelo',a:'Ozuna',y:'2020',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'Yonaguni',a:'Bad Bunny',y:'2021',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'Todo de Ti',a:'Rauw Alejandro',y:'2021',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'Pepas',a:'Farruko',y:'2021',s:'🟡',n:'Clean/radio edit recomendado'},
+  {g:'Reggaetón / urbano',t:'Provenza',a:'Karol G',y:'2022',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'Me Porto Bonito',a:'Bad Bunny, Chencho Corleone',y:'2022',s:'🟡',n:'Clean/radio edit recomendado'},
+  {g:'Reggaetón / urbano',t:'Tití Me Preguntó',a:'Bad Bunny',y:'2022',s:'🟡',n:'Clean/radio edit recomendado'},
+  {g:'Reggaetón / urbano',t:'Quevedo: Bzrp Music Sessions, Vol. 52',a:'Bizarrap, Quevedo',y:'2022',s:'✅',n:'Apta / revisar'},
+  {g:'Reggaetón / urbano',t:'Shakira: Bzrp Music Sessions, Vol. 53',a:'Shakira, Bizarrap',y:'2023',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'TQG',a:'Karol G, Shakira',y:'2023',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'Classy 101',a:'Feid, Young Miko',y:'2023',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'Luna',a:'Feid, ATL Jacob',y:'2023/24',s:'✅',n:'Apta / revisar'},
+  {g:'Reggaetón / urbano',t:'Gata Only',a:'FloyyMenor, Cris MJ',y:'2024',s:'🟡',n:'Clean/radio edit recomendado'},
+  {g:'Reggaetón / urbano',t:'Si Antes Te Hubiera Conocido',a:'Karol G',y:'2024',s:'✅',n:'Apta'},
+  {g:'Reggaetón / urbano',t:'DtMF',a:'Bad Bunny',y:'2025',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Reggaetón / urbano',t:'Imagínate',a:'Danny Ocean, Kapo',y:'2024/25',s:'✅',n:'Apta / revisar'},
+
+  {g:'Pop latino / balada pop',t:'Labios Compartidos',a:'Maná',y:'2006',s:'✅',n:'Apta / revisar'},
+  {g:'Pop latino / balada pop',t:'Bendita Tu Luz',a:'Maná ft. Juan Luis Guerra',y:'2007',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Dímelo',a:'Enrique Iglesias',y:'2007',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Me Enamora',a:'Juanes',y:'2007',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Gotas de Agua Dulce',a:'Juanes',y:'2008',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'No Me Doy Por Vencido',a:'Luis Fonsi',y:'2008',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Aquí Estoy Yo',a:'Luis Fonsi, David Bisbal, Aleks Syntek, Noel Schajris',y:'2009',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Loba',a:'Shakira',y:'2009',s:'✅',n:'Apta / sensual'},
+  {g:'Pop latino / balada pop',t:'Cuando Me Enamoro',a:'Enrique Iglesias ft. Juan Luis Guerra',y:'2010',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Niña Bonita',a:'Chino & Nacho',y:'2010',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Rabiosa',a:'Shakira ft. El Cata / Pitbull',y:'2011',s:'✅',n:'Apta / sensual'},
+  {g:'Pop latino / balada pop',t:'Corre',a:'Jesse & Joy',y:'2011',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Ai Se Eu Te Pego',a:'Michel Teló',y:'2011',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Limón y Sal',a:'Julieta Venegas',y:'2006+',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Eres Para Mí',a:'Julieta Venegas, Anita Tijoux',y:'2006',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Creo en Ti',a:'Reik',y:'2011',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Te Amo',a:'Makano',y:'2008',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Colgando en Tus Manos',a:'Carlos Baute, Marta Sánchez',y:'2008/09',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Mi Niña Bonita',a:'Chino & Nacho',y:'2010',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'El Poeta',a:'Chino & Nacho',y:'2011',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Te Voy a Amar',a:'Axel',y:'2011',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Color Esperanza 2020',a:'Varios artistas',y:'2020',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Me Rehúso',a:'Danny Ocean',y:'2016',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Andas En Mi Cabeza',a:'Chino & Nacho ft. Daddy Yankee',y:'2016',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Dembow',a:'Danny Ocean',y:'2017',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Robarte un Beso',a:'Carlos Vives, Sebastián Yatra',y:'2017',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Desconocidos',a:'Mau y Ricky, Camilo, Manuel Turizo',y:'2018',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Un Año',a:'Sebastián Yatra, Reik',y:'2019',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Mi Persona Favorita',a:'Alejandro Sanz, Camila Cabello',y:'2019',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'ADMV',a:'Maluma',y:'2020',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Vida de Rico',a:'Camilo',y:'2020',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Índigo',a:'Camilo, Evaluna',y:'2021',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Tacones Rojos',a:'Sebastián Yatra',y:'2021',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Ojos Marrones',a:'Lasso',y:'2022',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Fuera del Mercado',a:'Danny Ocean',y:'2022',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Monotonía',a:'Shakira, Ozuna',y:'2022',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Acróstico',a:'Shakira',y:'2023',s:'✅',n:'Apta'},
+  {g:'Pop latino / balada pop',t:'Caracas en el 2000',a:'Elena Rose, Danny Ocean, Jerry Di',y:'2023/24',s:'✅',n:'Apta / revisar'},
+  {g:'Pop latino / balada pop',t:'Oríón',a:'Boza, Elena Rose',y:'2024',s:'✅',n:'Apta / revisar'},
+  {g:'Pop latino / balada pop',t:'Veneka',a:'Rawayana, Akapellah',y:'2024',s:'🔴',n:'Evitar/revisar editorialmente'},
+
+  {g:'Bachata',t:'Un Beso',a:'Aventura',y:'2006',s:'✅',n:'Apta'},
+  {g:'Bachata',t:'Mi Corazoncito',a:'Aventura',y:'2007',s:'✅',n:'Apta'},
+  {g:'Bachata',t:'El Perdedor',a:'Aventura',y:'2008',s:'✅',n:'Apta'},
+  {g:'Bachata',t:'Por Un Segundo',a:'Aventura',y:'2009',s:'✅',n:'Apta'},
+  {g:'Bachata',t:'Dile al Amor',a:'Aventura',y:'2010',s:'✅',n:'Apta'},
+  {g:'Bachata',t:'Corazón Sin Cara',a:'Prince Royce',y:'2010/11',s:'✅',n:'Apta'},
+  {g:'Bachata',t:'Stand By Me',a:'Prince Royce',y:'2010',s:'✅',n:'Apta'},
+  {g:'Bachata',t:'Las Cosas Pequeñas',a:'Prince Royce',y:'2012',s:'✅',n:'Apta'},
+  {g:'Bachata',t:'Incondicional',a:'Prince Royce',y:'2012',s:'✅',n:'Apta'},
+  {g:'Bachata',t:'Eres Mía',a:'Romeo Santos',y:'2014',s:'✅',n:'Apta'},
+  {g:'Bachata',t:'Propuesta Indecente',a:'Romeo Santos',y:'2013',s:'🟠',n:'Tema adulto/sensual'},
+  {g:'Bachata',t:'Odio',a:'Romeo Santos ft. Drake',y:'2014',s:'🟠',n:'Tema adulto/despecho'},
+  {g:'Bachata',t:'Hilito',a:'Romeo Santos',y:'2014',s:'✅',n:'Apta'},
+  {g:'Bachata',t:'Imitadora',a:'Romeo Santos',y:'2017',s:'✅',n:'Apta'},
+  {g:'Bachata',t:'Sobredosis',a:'Romeo Santos ft. Ozuna',y:'2018',s:'🟠',n:'Tema adulto/sensual'},
+  {g:'Bachata',t:'El Farsante Remix',a:'Ozuna, Romeo Santos',y:'2018',s:'✅',n:'Apta / revisar'},
+  {g:'Bachata',t:'La Bachata',a:'Manuel Turizo',y:'2022',s:'✅',n:'Apta'},
+  {g:'Bachata',t:'X Si Volvemos',a:'Karol G, Romeo Santos',y:'2023',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Bachata',t:'Bailando Bachata',a:'Chayanne',y:'2023',s:'✅',n:'Apta'},
+  {g:'Bachata',t:'Por un Pendejo No se Llora',a:'Manuel Turizo',y:'2026',s:'🟡',n:'Revisar por título/lenguaje'},
+
+  {g:'Salsa / tropical',t:'Valió la Pena',a:'Marc Anthony',y:'2006+',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Ahora Quién',a:'Marc Anthony',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Aguanile',a:'Marc Anthony',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Vivir Mi Vida',a:'Marc Anthony',y:'2013',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Flor Pálida',a:'Marc Anthony',y:'2013',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Cambio de Piel',a:'Marc Anthony',y:'2013',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Tu Amor Me Hace Bien',a:'Marc Anthony',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Tu Vida en la Mía',a:'Marc Anthony',y:'2019',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Parecen Viernes',a:'Marc Anthony',y:'2019',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'De Vuelta Pa’ La Vuelta',a:'Daddy Yankee, Marc Anthony',y:'2020',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Pa’llá Voy',a:'Marc Anthony',y:'2021',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Mala',a:'Marc Anthony',y:'2022',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Punta Cana',a:'Marc Anthony',y:'2024',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Algo Que Se Quede',a:'Grupo Niche',y:'2020',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Canción Bonita',a:'Carlos Vives, Ricky Martin',y:'2021',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'La Fórmula',a:'Maluma, Marc Anthony',y:'2023',s:'✅',n:'Apta / revisar'},
+  {g:'Salsa / tropical',t:'Conteo Regresivo',a:'Gilberto Santa Rosa',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Déjate Querer',a:'Gilberto Santa Rosa',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Me Volvieron a Hablar de Ella',a:'Gilberto Santa Rosa',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Sin Sentimiento',a:'Grupo Niche',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Gotas de Lluvia',a:'Grupo Niche',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Cali Pachanguero',a:'Grupo Niche',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Llorarás',a:'Oscar D’León',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Detalles',a:'Oscar D’León',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'La Rebelión',a:'Joe Arroyo',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Pedro Navaja',a:'Rubén Blades',y:'Clásico',s:'✅',n:'Apta / historia adulta'},
+  {g:'Salsa / tropical',t:'Tiburón',a:'Rubén Blades',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Salsa / tropical',t:'Tus Ojos',a:'Diveana',y:'Recurrente',s:'✅',n:'Apta'},
+
+  {g:'Merengue / tropical bailable',t:'A Pedir Su Mano',a:'Juan Luis Guerra 4.40',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Merengue / tropical bailable',t:'La Bilirrubina',a:'Juan Luis Guerra 4.40',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Merengue / tropical bailable',t:'El Niágara en Bicicleta',a:'Juan Luis Guerra 4.40',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Merengue / tropical bailable',t:'Bachata en Fukuoka',a:'Juan Luis Guerra',y:'2010',s:'✅',n:'Apta'},
+  {g:'Merengue / tropical bailable',t:'La Llave de Mi Corazón',a:'Juan Luis Guerra',y:'2007+',s:'✅',n:'Apta'},
+  {g:'Merengue / tropical bailable',t:'Cuando Me Enamoro',a:'Enrique Iglesias ft. Juan Luis Guerra',y:'2010',s:'✅',n:'Apta'},
+  {g:'Merengue / tropical bailable',t:'El Amor de Mi Vida',a:'Juan Luis Guerra',y:'2020',s:'✅',n:'Apta'},
+  {g:'Merengue / tropical bailable',t:'Kitipun',a:'Juan Luis Guerra',y:'2019',s:'✅',n:'Apta'},
+  {g:'Merengue / tropical bailable',t:'Vale la Pena',a:'Juan Luis Guerra',y:'2019',s:'✅',n:'Apta'},
+  {g:'Merengue / tropical bailable',t:'La Mordidita',a:'Ricky Martin ft. Yotuel',y:'2015',s:'✅',n:'Apta / sensual'},
+  {g:'Merengue / tropical bailable',t:'Pegao',a:'Camilo',y:'2022',s:'✅',n:'Apta'},
+  {g:'Merengue / tropical bailable',t:'Después de la Playa',a:'Bad Bunny',y:'2022',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Merengue / tropical bailable',t:'Si Antes Te Hubiera Conocido',a:'Karol G',y:'2024',s:'✅',n:'Apta'},
+  {g:'Merengue / tropical bailable',t:'Capaz — Merenguetón',a:'Alleh, Yorghaki',y:'2024',s:'✅',n:'Apta / revisar'},
+  {g:'Merengue / tropical bailable',t:'Ayer la Vi',a:'Juan Magán, Omar Montes',y:'2025/26',s:'🟡',n:'Revisar clean/radio edit'},
+  {g:'Merengue / tropical bailable',t:'Por un Pendejo No se Llora',a:'Manuel Turizo',y:'2026',s:'🟡',n:'Revisar por título/lenguaje'},
+
+  {g:'Vallenato / vallenato pop',t:'La Invitación',a:'Jorge Celedón',y:'2006+',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'Esta Vida',a:'Jorge Celedón',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'Me Gustas Mucho',a:'Jorge Celedón',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'Cuatro Rosas',a:'Jorge Celedón',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'Que Bonita es Esta Vida',a:'Jorge Celedón',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'Materialista',a:'Silvestre Dangond, Nicky Jam',y:'2016',s:'✅',n:'Apta / revisar'},
+  {g:'Vallenato / vallenato pop',t:'Cásate Conmigo',a:'Silvestre Dangond, Nicky Jam',y:'2018',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'Justicia',a:'Silvestre Dangond, Natti Natasha',y:'2018',s:'✅',n:'Apta / revisar'},
+  {g:'Vallenato / vallenato pop',t:'Las Locuras Mías',a:'Silvestre Dangond',y:'2020',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'Los Besos de Mi Vida',a:'Silvestre Dangond',y:'2020',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'Que Te Vaya Bien',a:'Silvestre Dangond',y:'2021',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'Robarte un Beso',a:'Carlos Vives, Sebastián Yatra',y:'2017',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'La Bicicleta',a:'Carlos Vives, Shakira',y:'2016',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'Volví a Nacer',a:'Carlos Vives',y:'2012+',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'Cuando Nos Volvamos a Encontrar',a:'Carlos Vives, Marc Anthony',y:'2014',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'No Te Vayas',a:'Carlos Vives',y:'2020',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'Si No Me Falla el Corazón',a:'Rafa Pérez',y:'Reciente',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'El Santo Cachón',a:'Los Embajadores Vallenatos',y:'Clásico',s:'🟠',n:'Tema adulto/humor'},
+  {g:'Vallenato / vallenato pop',t:'Te Extraño',a:'Los Chiches Vallenatos',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'Ceniza Fría',a:'Los Chiches Vallenatos',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Vallenato / vallenato pop',t:'Me Ilusioné',a:'Binomio de Oro',y:'Clásico',s:'✅',n:'Apta'},
+
+  {g:'Gaita zuliana / Guaco',t:'La Feria de la Chinita',a:'Guaco',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Para Ti Chinita',a:'Guaco',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Sin Rencor',a:'Gran Coquivacoa',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'La Grey Zuliana',a:'Ricardo Aguirre / versiones',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Reina Morena',a:'Cardenales del Éxito / versiones',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Amparito',a:'Cardenales del Éxito',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Sentir Zuliano',a:'Ricardo Cepeda / versiones',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Maracaibo Marginada',a:'Ricardo Aguirre / versiones',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Gaita Onomatopéyica',a:'Gran Coquivacoa, Neguito Borjas',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Cita con Ricardo',a:'Ricardo Cepeda',y:'2020',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Gaita Añejа',a:'Ricardo Cepeda',y:'Reciente',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Me Sobra la Fe',a:'Ricardo Cepeda',y:'2025',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Mix Gaitas Venezolanas 2023',a:'Afro Criollo ft. Juan Miguel',y:'2023',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Baja',a:'Guaco',y:'2006/07',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Todo Quedó, Quedó',a:'Guaco',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Las Caraqueñas',a:'Guaco',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Vivo',a:'Guaco',y:'2012',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Lágrimas No Más',a:'Guaco',y:'2014',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'De Vuelta a Tu Corazón',a:'Guaco',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Gaita zuliana / Guaco',t:'Eres Más',a:'Guaco',y:'Recurrente',s:'✅',n:'Apta'},
+
+  {g:'Música llanera / venezolana',t:'Venezuela',a:'Luis Silva',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Música llanera / venezolana',t:'Como No Voy a Decirlo',a:'Luis Silva',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Música llanera / venezolana',t:'Romance Quinceañero',a:'Luis Silva',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Música llanera / venezolana',t:'Soy Venezuela',a:'Luis Silva',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Música llanera / venezolana',t:'Enfurecida',a:'Luis Silva',y:'Recurrente',s:'✅',n:'Apta'},
+  {g:'Música llanera / venezolana',t:'Indetenible',a:'Luis Silva y varios',y:'Reciente',s:'✅',n:'Apta'},
+  {g:'Música llanera / venezolana',t:'D’ Pueblo',a:'Chino & Nacho ft. Luis Silva / Noreh',y:'2026',s:'✅',n:'Apta / revisar'},
+  {g:'Música llanera / venezolana',t:'Alma Llanera',a:'Versiones varias',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Música llanera / venezolana',t:'Caballo Viejo',a:'Simón Díaz / versiones',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Música llanera / venezolana',t:'Tonada de Luna Llena',a:'Simón Díaz / versiones',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Música llanera / venezolana',t:'El Becerrito',a:'Simón Díaz',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Música llanera / venezolana',t:'Ansiedad',a:'Versiones varias',y:'Clásico',s:'✅',n:'Apta'},
+  {g:'Música llanera / venezolana',t:'Moliendo Café',a:'Hugo Blanco / versiones',y:'Clásico',s:'✅',n:'Apta'},
+
+  {g:'Regional mexicana',t:'Para Siempre',a:'Vicente Fernández',y:'2008',s:'✅',n:'Apta'},
+  {g:'Regional mexicana',t:'Estos Celos',a:'Vicente Fernández',y:'2008',s:'✅',n:'Apta'},
+  {g:'Regional mexicana',t:'Te Presumo',a:'Banda El Recodo',y:'2009',s:'✅',n:'Apta'},
+  {g:'Regional mexicana',t:'Lo Intentamos',a:'Espinoza Paz',y:'2009',s:'✅',n:'Apta'},
+  {g:'Regional mexicana',t:'Me Gusta Todo de Ti',a:'Banda El Recodo',y:'2010',s:'✅',n:'Apta'},
+  {g:'Regional mexicana',t:'Llamada de Mi Ex',a:'La Arrolladora Banda El Limón',y:'2012',s:'✅',n:'Apta / despecho'},
+  {g:'Regional mexicana',t:'Hablame de Ti',a:'Banda MS',y:'2015',s:'✅',n:'Apta'},
+  {g:'Regional mexicana',t:'Solo Con Verte',a:'Banda MS',y:'2016',s:'✅',n:'Apta'},
+  {g:'Regional mexicana',t:'Adiós Amor',a:'Christian Nodal',y:'2017',s:'✅',n:'Apta'},
+  {g:'Regional mexicana',t:'Probablemente',a:'Christian Nodal, David Bisbal',y:'2017',s:'✅',n:'Apta'},
+  {g:'Regional mexicana',t:'De Los Besos Que Te Di',a:'Christian Nodal',y:'2019',s:'✅',n:'Apta'},
+  {g:'Regional mexicana',t:'Botella Tras Botella',a:'Gera MX, Christian Nodal',y:'2021',s:'🟠',n:'Alcohol/despecho'},
+  {g:'Regional mexicana',t:'Ya Supérame',a:'Grupo Firme',y:'2021',s:'🟠',n:'Despecho fuerte'},
+  {g:'Regional mexicana',t:'El Tóxico',a:'Grupo Firme, Carin León',y:'2020',s:'🟠',n:'Tema adulto/despecho'},
+  {g:'Regional mexicana',t:'No Se Va',a:'Grupo Frontera',y:'2022',s:'✅',n:'Apta'},
+  {g:'Regional mexicana',t:'Bebe Dame',a:'Grupo Frontera, Fuerza Regida',y:'2022',s:'✅',n:'Apta / revisar'},
+  {g:'Regional mexicana',t:'un x100to',a:'Grupo Frontera, Bad Bunny',y:'2023',s:'✅',n:'Apta'},
+  {g:'Regional mexicana',t:'Ella Baila Sola',a:'Eslabón Armado, Peso Pluma',y:'2023',s:'🟠',n:'Revisar por estilo/corrido'},
+  {g:'Regional mexicana',t:'La Diabla',a:'Xavi',y:'2023/24',s:'🟠',n:'Tema adulto/sensual'},
+  {g:'Regional mexicana',t:'La Víctima',a:'Xavi',y:'2023/24',s:'✅',n:'Apta / revisar'},
+  {g:'Regional mexicana',t:'Primera Cita',a:'Carin León',y:'2022/23',s:'✅',n:'Apta'},
+  {g:'Regional mexicana',t:'Según Quién',a:'Maluma, Carin León',y:'2023',s:'🟠',n:'Despecho/tema adulto'},
+
+  {g:'Afro / pop tropical / dance latino',t:'Hips Don’t Lie',a:'Shakira ft. Wyclef Jean',y:'2006',s:'✅',n:'Apta'},
+  {g:'Afro / pop tropical / dance latino',t:'Waka Waka',a:'Shakira',y:'2010',s:'✅',n:'Apta'},
+  {g:'Afro / pop tropical / dance latino',t:'La La La',a:'Shakira',y:'2014',s:'✅',n:'Apta'},
+  {g:'Afro / pop tropical / dance latino',t:'Bailando',a:'Enrique Iglesias, Gente de Zona, Descemer Bueno',y:'2014',s:'✅',n:'Apta'},
+  {g:'Afro / pop tropical / dance latino',t:'La Gozadera',a:'Gente de Zona, Marc Anthony',y:'2015',s:'✅',n:'Apta'},
+  {g:'Afro / pop tropical / dance latino',t:'Traidora',a:'Gente de Zona, Marc Anthony',y:'2015',s:'✅',n:'Apta'},
+  {g:'Afro / pop tropical / dance latino',t:'Súbeme la Radio',a:'Enrique Iglesias, Descemer Bueno, Zion & Lennox',y:'2017',s:'✅',n:'Apta / sensual'},
+  {g:'Afro / pop tropical / dance latino',t:'Me Enamoré',a:'Shakira',y:'2017',s:'✅',n:'Apta'},
+  {g:'Afro / pop tropical / dance latino',t:'Calma Remix',a:'Pedro Capó, Farruko',y:'2018',s:'✅',n:'Apta'},
+  {g:'Afro / pop tropical / dance latino',t:'Tutu',a:'Camilo, Pedro Capó',y:'2019',s:'✅',n:'Apta'},
+  {g:'Afro / pop tropical / dance latino',t:'Ropa Cara',a:'Camilo',y:'2021',s:'✅',n:'Apta'},
+  {g:'Afro / pop tropical / dance latino',t:'Kesi Remix',a:'Camilo, Shawn Mendes',y:'2021',s:'✅',n:'Apta'},
+  {g:'Afro / pop tropical / dance latino',t:'Índigo',a:'Camilo, Evaluna',y:'2021',s:'✅',n:'Apta'},
+  {g:'Afro / pop tropical / dance latino',t:'5 Estrellas',a:'W Sound, Myke Towers, Ovy On The Drums',y:'2024/25',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Afro / pop tropical / dance latino',t:'Algo Tú',a:'Shakira, Beéle',y:'2025/26',s:'🟡',n:'Revisar clean/radio edit'},
+  {g:'Afro / pop tropical / dance latino',t:'La Villa',a:'Ryan Castro, Kapo',y:'2024/25',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Afro / pop tropical / dance latino',t:'Yo y Tú',a:'Ovy On The Drums, Quevedo, Beéle',y:'2025',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Afro / pop tropical / dance latino',t:'Cosita Linda',a:'Elena Rose, Justin Quiles',y:'2025',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Afro / pop tropical / dance latino',t:'Amén Bebé',a:'Elena Rose',y:'2025',s:'✅',n:'Apta / revisar'},
+  {g:'Afro / pop tropical / dance latino',t:'Top Diesel',a:'Beéle',y:'2025',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Afro / pop tropical / dance latino',t:'X Ti',a:'Kapo, Feid',y:'2025',s:'🟡',n:'Buscar clean/radio edit'}
+];
+
+const stateKey='radio-maracaibo-checks-v1';
+let checks=JSON.parse(localStorage.getItem(stateKey)||'{}');
+const $=id=>document.getElementById(id);
+const tbody=$('tbody');
+function idFor(x){return btoa(unescape(encodeURIComponent(`${x.g}|${x.t}|${x.a}`))).replace(/=+$/,'')}
+function ytUrl(x){return `https://music.youtube.com/search?q=${encodeURIComponent(`${x.a} ${x.t}`)}`}
+function badgeClass(s){return s==='✅'?'ok':s==='🟡'?'warn':s==='🟠'?'adult':'avoid'}
+function populateGenres(){[...new Set(tracks.map(x=>x.g))].sort().forEach(g=>{const o=document.createElement('option');o.value=g;o.textContent=g;$('genre').appendChild(o)})}
+function filtered(){const q=$('q').value.trim().toLowerCase(), g=$('genre').value, s=$('status').value, c=$('checked').value;return tracks.filter(x=>{const id=idFor(x);const hit=`${x.t} ${x.a} ${x.g} ${x.y} ${x.n}`.toLowerCase().includes(q);return hit&&(!g||x.g===g)&&(!s||x.s===s)&&(!c||(c==='done'?checks[id]:!checks[id]))})}
+function row(x){const id=idFor(x);return `<tr><td class="check"><input type="checkbox" data-id="${id}" ${checks[id]?'checked':''}></td><td><div class="song">${esc(x.t)}</div><div class="small artist-col">${esc(x.a)}</div></td><td class="artist-col artist">${esc(x.a)}</td><td><span class="small">${esc(x.g)}</span></td><td class="year-col small">${esc(x.y)}</td><td><span class="badge ${badgeClass(x.s)}">${x.s} ${esc(x.n)}</span></td><td><div class="row-actions"><a class="music" target="_blank" rel="noopener" href="${ytUrl(x)}">YouTube Music</a><button class="copybtn" data-copy="${escAttr(`${x.t} - ${x.a} | ${ytUrl(x)}`)}">Copiar</button></div></td></tr>`}
+function esc(s){return String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+function escAttr(s){return esc(s).replace(/'/g,'&#39;')}
+function render(){const data=filtered();tbody.innerHTML=data.length?data.map(row).join(''):`<tr><td colspan="7" class="empty">No hay resultados con esos filtros.</td></tr>`;$('total').textContent=data.length;$('done').textContent=data.filter(x=>checks[idFor(x)]).length;$('pending').textContent=data.filter(x=>!checks[idFor(x)]).length;$('safe').textContent=data.filter(x=>x.s==='✅').length}
+function save(){localStorage.setItem(stateKey,JSON.stringify(checks));render()}
+function toCSV(data){const head=['checked','genero','cancion','artista','anio','estado','nota','youtube_music'];const rows=data.map(x=>[checks[idFor(x)]?'X':'',x.g,x.t,x.a,x.y,x.s,x.n,ytUrl(x)]);return [head,...rows].map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n')}
+function toMarkdown(data){return data.map(x=>`- [${checks[idFor(x)]?'x':' '}] ${x.t} — ${x.a} (${x.g}, ${x.y}) ${x.s} ${x.n}\n  ${ytUrl(x)}`).join('\n')}
+async function copy(text){await navigator.clipboard.writeText(text);toast('Copiado al portapapeles')}
+function toast(msg){const n=document.createElement('div');n.textContent=msg;n.style.cssText='position:fixed;right:18px;bottom:18px;background:#1b2230;border:1px solid #5cc8ff;color:#e8eefc;padding:12px 14px;border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.35);z-index:99';document.body.appendChild(n);setTimeout(()=>n.remove(),1600)}
+function download(name,text){const blob=new Blob([text],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();URL.revokeObjectURL(a.href)}
+['q','genre','status','checked'].forEach(id=>$(id).addEventListener('input',render));
+tbody.addEventListener('change',e=>{if(e.target.matches('input[type=checkbox]')){checks[e.target.dataset.id]=e.target.checked;if(!e.target.checked)delete checks[e.target.dataset.id];save()}});
+tbody.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(b)copy(b.dataset.copy)});
+$('copyVisible').onclick=()=>copy(toMarkdown(filtered()));
+$('copyCSV').onclick=()=>copy(toCSV(filtered()));
+$('downloadCSV').onclick=()=>download('checklist-youtube-music-radio-maracaibo.csv',toCSV(filtered()));
+$('selectVisible').onclick=()=>{filtered().forEach(x=>checks[idFor(x)]=true);save()};
+$('clearChecks').onclick=()=>{if(confirm('¿Limpiar todos los checks guardados?')){checks={};save()}};
+populateGenres();render();
+</script>
+</body>
+</html>
