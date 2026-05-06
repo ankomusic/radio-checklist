@@ -6,59 +6,97 @@
   <title>Checklist YouTube Music — Radio Maracaibo 2006–2026</title>
   <style>
     :root{
-      --bg:#0e1117; --panel:#151a23; --panel-2:#1b2230; --text:#e8eefc; --muted:#9fb0ca;
-      --line:#2a3446; --accent:#8bd450; --accent-2:#5cc8ff; --warn:#ffd166; --danger:#ff6b6b;
-      --shadow:0 14px 40px rgba(0,0,0,.25); --radius:18px;
+      --bg:#070a08;
+      --bg-2:#0d1410;
+      --surface:#111812;
+      --surface-2:#172119;
+      --surface-3:#1d2a20;
+      --text:#f3fff6;
+      --muted:#9eb4a4;
+      --line:#26342a;
+      --green:#1ed760;
+      --green-2:#7dffad;
+      --blue:#5cc8ff;
+      --yellow:#ffd166;
+      --orange:#ff9f43;
+      --red:#ff6b6b;
+      --shadow:0 22px 70px rgba(0,0,0,.35);
+      --radius:22px;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(160deg,#0e1117 0%,#121826 60%,#0b0f16 100%);color:var(--text)}
-    header{position:sticky;top:0;z-index:10;background:rgba(14,17,23,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-    .wrap{max-width:1220px;margin:0 auto;padding:22px}
-    h1{margin:0 0 8px;font-size:clamp(1.45rem,2.5vw,2.4rem);letter-spacing:-.04em}
-    .subtitle{margin:0;color:var(--muted);line-height:1.5}
-    .toolbar{display:grid;grid-template-columns:1.4fr repeat(3, minmax(150px,.7fr));gap:12px;margin-top:18px}
-    input,select,button{font:inherit;border:1px solid var(--line);border-radius:14px;padding:12px 13px;background:var(--panel);color:var(--text);outline:none}
-    input:focus,select:focus{border-color:var(--accent-2);box-shadow:0 0 0 3px rgba(92,200,255,.13)}
-    button{cursor:pointer;background:var(--panel-2);transition:.18s ease;border-color:#334057}
-    button:hover{transform:translateY(-1px);border-color:var(--accent-2)}
-    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-    .primary{background:linear-gradient(135deg,#376bff,#5cc8ff);border:0;color:white;font-weight:700}
-    .success{background:linear-gradient(135deg,#2f8f4e,#8bd450);border:0;color:#061208;font-weight:800}
-    .danger{background:linear-gradient(135deg,#aa3030,#ff6b6b);border:0;color:white;font-weight:700}
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
-    .stat{background:rgba(21,26,35,.8);border:1px solid var(--line);border-radius:var(--radius);padding:15px;box-shadow:var(--shadow)}
-    .stat b{display:block;font-size:1.45rem}.stat span{color:var(--muted);font-size:.9rem}
-    main{max-width:1220px;margin:0 auto;padding:0 22px 40px}
-    .note{background:rgba(255,209,102,.08);border:1px solid rgba(255,209,102,.25);color:#ffefbf;border-radius:var(--radius);padding:14px 16px;margin:18px 0;line-height:1.45}
-    .table-wrap{background:rgba(21,26,35,.82);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-    table{width:100%;border-collapse:collapse}
-    th,td{padding:12px 11px;border-bottom:1px solid var(--line);vertical-align:middle;text-align:left}
-    th{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);background:rgba(27,34,48,.96);z-index:5}
-    tr:hover td{background:rgba(92,200,255,.04)}
-    .check{width:46px;text-align:center}.song{font-weight:760}.artist{color:#d6e1f5}.mobile-artist{display:none}.small{color:var(--muted);font-size:.9rem}.badge{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);padding:6px 9px;border-radius:999px;font-size:.82rem;white-space:nowrap}.ok{border-color:rgba(139,212,80,.35);color:#bff59b;background:rgba(139,212,80,.07)}.warn{border-color:rgba(255,209,102,.4);color:#ffdf8a;background:rgba(255,209,102,.07)}.adult{border-color:rgba(255,160,64,.38);color:#ffc38a;background:rgba(255,160,64,.07)}.avoid{border-color:rgba(255,107,107,.4);color:#ffb0b0;background:rgba(255,107,107,.07)}
-    a.music{display:inline-flex;align-items:center;text-decoration:none;color:#061208;background:var(--accent);padding:8px 10px;border-radius:12px;font-weight:800;white-space:nowrap}.copybtn{padding:8px 10px;border-radius:12px;font-size:.9rem}.row-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.empty{padding:28px;text-align:center;color:var(--muted)}
-    footer{color:var(--muted);text-align:center;padding:28px 20px 44px;line-height:1.5}
-    @media(max-width:900px){.toolbar{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.hide-sm{display:none}table{font-size:.92rem}.row-actions{display:block}.copybtn{margin-top:6px}}
-    @media(max-width:620px){.wrap,main{padding-left:14px;padding-right:14px}.stats{grid-template-columns:1fr}th,td{padding:10px 8px}.artist-col,.year-col{display:none}.mobile-artist{display:block;margin-top:4px}}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(circle at 15% -10%,rgba(30,215,96,.22),transparent 34%),
+        radial-gradient(circle at 92% 5%,rgba(92,200,255,.12),transparent 30%),
+        linear-gradient(160deg,var(--bg) 0%,var(--bg-2) 58%,#040604 100%);
+      color:var(--text);
+    }
+    .wrap{max-width:1240px;margin:0 auto;padding:26px 22px}
+    header.hero{border-bottom:1px solid rgba(125,255,173,.12)}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;margin-bottom:12px;color:var(--green-2);font-size:.82rem;font-weight:900;text-transform:uppercase;letter-spacing:.14em}
+    .eyebrow::before{content:"";width:9px;height:9px;border-radius:999px;background:var(--green);box-shadow:0 0 22px rgba(30,215,96,.8)}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:18px;align-items:stretch}
+    h1{margin:0 0 10px;font-size:clamp(1.8rem,4vw,4.1rem);line-height:.95;letter-spacing:-.07em;font-weight:950}
+    .subtitle{margin:0;color:var(--muted);line-height:1.6;max-width:790px;font-size:1.02rem}
+    .hero-card{background:linear-gradient(145deg,rgba(30,215,96,.16),rgba(23,33,25,.82));border:1px solid rgba(125,255,173,.2);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .hero-card b{font-size:2.2rem;line-height:1;display:block}.hero-card span{color:var(--muted);line-height:1.45}.priority-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.pill{border:1px solid var(--line);border-radius:999px;padding:7px 10px;font-size:.86rem;background:rgba(255,255,255,.035);color:#dceee1}
+    .control-panel{margin-top:20px;background:rgba(17,24,18,.72);border:1px solid rgba(125,255,173,.12);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow)}
+    .toolbar{display:grid;grid-template-columns:1.5fr repeat(3, minmax(150px,.7fr));gap:12px}
+    input,select,button{font:inherit;border:1px solid var(--line);border-radius:16px;padding:12px 13px;background:var(--surface-2);color:var(--text);outline:none}
+    input::placeholder{color:#78907e}input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(30,215,96,.12)}
+    button{cursor:pointer;background:linear-gradient(180deg,var(--surface-3),var(--surface-2));transition:.18s ease;border-color:#314238;font-weight:760}
+    button:hover{transform:translateY(-1px);border-color:var(--green);box-shadow:0 12px 30px rgba(30,215,96,.08)}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.primary{background:linear-gradient(135deg,#19b955,#1ed760);border:0;color:#021006;font-weight:950}.success{background:linear-gradient(135deg,#243a2a,#1ed760);border:1px solid rgba(125,255,173,.25);color:#f3fff6;font-weight:900}.danger{background:linear-gradient(135deg,#642323,#ff6b6b);border:0;color:white;font-weight:850}
+    main{max-width:1240px;margin:0 auto;padding:0 22px 42px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}.stat{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(23,33,25,.94),rgba(13,20,16,.94));border:1px solid rgba(125,255,173,.12);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}.stat::after{content:"";position:absolute;right:-20px;top:-28px;width:90px;height:90px;border-radius:999px;background:rgba(30,215,96,.08)}.stat b{display:block;font-size:1.75rem;letter-spacing:-.04em}.stat span{color:var(--muted);font-size:.9rem}
+    .note{display:grid;grid-template-columns:auto 1fr;gap:12px;background:rgba(30,215,96,.075);border:1px solid rgba(125,255,173,.16);color:#dfffe8;border-radius:var(--radius);padding:15px 16px;margin:18px 0;line-height:1.5}.note::before{content:"♪";display:grid;place-items:center;width:34px;height:34px;border-radius:12px;background:rgba(30,215,96,.17);color:var(--green-2);font-weight:950}.note code{color:var(--green-2)}
+    .table-wrap{background:rgba(17,24,18,.88);border:1px solid rgba(125,255,173,.12);border-radius:var(--radius);overflow:auto;max-height:72vh;box-shadow:var(--shadow);scrollbar-gutter:stable both-edges;scroll-behavior:smooth}.table-wrap::-webkit-scrollbar{width:12px;height:12px}.table-wrap::-webkit-scrollbar-track{background:rgba(255,255,255,.035);border-radius:999px}.table-wrap::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#2c4131,#1ed760);border-radius:999px;border:2px solid rgba(0,0,0,.16)}.table-wrap::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#3b5b43,#36f17d)}.table-wrap{scrollbar-width:thin;scrollbar-color:#1ed760 rgba(255,255,255,.035)}table{width:100%;min-width:980px;border-collapse:collapse}th,td{padding:13px 12px;border-bottom:1px solid rgba(125,255,173,.1);vertical-align:middle;text-align:left}th{font-size:.75rem;text-transform:uppercase;letter-spacing:.11em;color:#93aa99;background:rgba(13,20,16,.98);position:sticky;top:0;z-index:2;backdrop-filter:blur(8px)}tbody tr{transition:.16s ease}tbody tr:hover td{background:rgba(30,215,96,.045)}tbody tr.status-safe td:first-child{box-shadow:inset 4px 0 0 var(--green)}tbody tr.status-warn td:first-child{box-shadow:inset 4px 0 0 var(--yellow)}tbody tr.status-adult td:first-child{box-shadow:inset 4px 0 0 var(--orange)}tbody tr.status-avoid td:first-child{box-shadow:inset 4px 0 0 var(--red)}
+    .check{width:50px;text-align:center}.check input{width:18px;height:18px;accent-color:var(--green)}.song{font-weight:900;letter-spacing:-.02em}.artist{color:#d6e9db}.mobile-artist{display:none}.small{color:var(--muted);font-size:.9rem}.badge{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);padding:7px 10px;border-radius:999px;font-size:.82rem;font-weight:850;white-space:nowrap}.ok{border-color:rgba(30,215,96,.38);color:#bfffd2;background:rgba(30,215,96,.09)}.warn{border-color:rgba(255,209,102,.42);color:#ffdf8a;background:rgba(255,209,102,.08)}.adult{border-color:rgba(255,159,67,.42);color:#ffc18d;background:rgba(255,159,67,.08)}.avoid{border-color:rgba(255,107,107,.42);color:#ffb0b0;background:rgba(255,107,107,.08)}
+    a.music{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:#fff;background:linear-gradient(135deg,#ff0033,#ff2d55);padding:10px 13px;border-radius:14px;font-weight:950;white-space:nowrap;box-shadow:0 10px 26px rgba(255,0,51,.28);border:1px solid rgba(255,255,255,.08);transition:.18s ease}a.music::before{content:"▶";font-size:.82rem;line-height:1}a.music:hover{transform:translateY(-1px) scale(1.01);box-shadow:0 14px 32px rgba(255,0,51,.36);filter:brightness(1.04)}.copybtn{padding:9px 11px;border-radius:13px;font-size:.9rem}.row-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;min-width:220px}.empty{padding:32px;text-align:center;color:var(--muted)}footer{color:var(--muted);text-align:center;padding:28px 20px 44px;line-height:1.5}
+    @media(max-width:940px){.hero-grid{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}table{font-size:.92rem}.copybtn{margin-top:6px}}
+    @media(max-width:860px){.table-wrap{max-height:none;overflow:visible;background:transparent;border:0;box-shadow:none}table,thead,tbody,th,td,tr{display:block;width:100%;min-width:0}thead{display:none}tbody{display:grid;gap:14px}tbody tr{background:linear-gradient(145deg,rgba(23,33,25,.96),rgba(13,20,16,.96));border:1px solid rgba(125,255,173,.12);border-radius:18px;padding:12px;box-shadow:var(--shadow)}tbody tr:hover td{background:transparent}tbody tr.status-safe{box-shadow:inset 4px 0 0 var(--green),var(--shadow)}tbody tr.status-warn{box-shadow:inset 4px 0 0 var(--yellow),var(--shadow)}tbody tr.status-adult{box-shadow:inset 4px 0 0 var(--orange),var(--shadow)}tbody tr.status-avoid{box-shadow:inset 4px 0 0 var(--red),var(--shadow)}tbody tr.status-safe td:first-child,tbody tr.status-warn td:first-child,tbody tr.status-adult td:first-child,tbody tr.status-avoid td:first-child{box-shadow:none}tbody tr td{display:grid;grid-template-columns:112px 1fr;gap:10px;align-items:start;border-bottom:1px solid rgba(125,255,173,.08);padding:10px 0}tbody tr td:last-child{border-bottom:none}tbody tr td::before{content:attr(data-label);color:#8fa695;font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.check{text-align:left}.check input{margin-top:2px}.artist-col,.year-col{display:grid!important}.mobile-artist{display:block;margin-top:4px}.row-actions{display:flex;flex-wrap:wrap;gap:8px;min-width:0}a.music,.copybtn{width:100%;justify-content:center}}
+    @media(max-width:680px){.wrap,main{padding-left:14px;padding-right:14px}.stats{grid-template-columns:1fr}th,td{padding:10px 8px}.note{grid-template-columns:1fr}.hero-card b{font-size:1.8rem}.actions button{width:100%}}
+    @media(max-width:430px){tbody tr td{grid-template-columns:1fr;gap:6px}.badge{white-space:normal}.song{font-size:1.03rem}}
   </style>
 </head>
 <body>
-  <header>
+  <header class="hero">
     <div class="wrap">
-      <h1>Checklist YouTube Music — Radio Maracaibo 2006–2026</h1>
-      <p class="subtitle">Lista editable para buscar canciones en YouTube Music, marcar descargadas/legalmente obtenidas y verificar clean/radio edit antes de programarlas.</p>
-      <div class="toolbar">
-        <input id="q" placeholder="Buscar canción, artista o género…" />
-        <select id="genre"><option value="">Todos los géneros</option></select>
-        <select id="status"><option value="">Todos los estados clean</option><option value="✅">✅ Apta</option><option value="🟡">🟡 Clean/radio edit</option><option value="🟠">🟠 Tema adulto</option><option value="🔴">🔴 Evitar/revisar</option></select>
-        <select id="checked"><option value="">Todas</option><option value="pending">Pendientes</option><option value="done">Marcadas</option></select>
+      <div class="eyebrow">Radio Library Builder · YouTube Music</div>
+      <div class="hero-grid">
+        <div>
+          <h1>Checklist radial Maracaibo 2006–2026</h1>
+          <p class="subtitle">Biblioteca musical priorizada para emisora: primero canciones aptas, luego temas que requieren clean/radio edit, revisión adulta o criterio editorial. Cada canción abre búsqueda directa en YouTube Music.</p>
+        </div>
+        <aside class="hero-card">
+          <b>✅ primero</b>
+          <span>Orden automático por prioridad radial: aptas → clean requerido → adulto → evitar/revisar.</span>
+          <div class="priority-strip">
+            <span class="pill">✅ Apta</span>
+            <span class="pill">🟡 Clean</span>
+            <span class="pill">🟠 Adulto</span>
+            <span class="pill">🔴 Revisar</span>
+          </div>
+        </aside>
       </div>
-      <div class="actions">
-        <button class="primary" id="copyVisible">Copiar visibles en Markdown</button>
-        <button id="copyCSV">Copiar CSV</button>
-        <button class="success" id="downloadCSV">Descargar CSV</button>
-        <button id="selectVisible">Marcar visibles</button>
-        <button class="danger" id="clearChecks">Limpiar checks</button>
+      <div class="control-panel">
+        <div class="toolbar">
+          <input id="q" placeholder="Buscar canción, artista o género…" />
+          <select id="genre"><option value="">Todos los géneros</option></select>
+          <select id="status"><option value="">Todos los estados clean</option><option value="✅">✅ Apta</option><option value="🟡">🟡 Clean/radio edit</option><option value="🟠">🟠 Tema adulto</option><option value="🔴">🔴 Evitar/revisar</option></select>
+          <select id="checked"><option value="">Todas</option><option value="pending">Pendientes</option><option value="done">Marcadas</option></select>
+        </div>
+        <div class="actions">
+          <button class="primary" id="copyVisible">Copiar visibles en Markdown</button>
+          <button id="copyCSV">Copiar CSV</button>
+          <button class="success" id="downloadCSV">Descargar CSV</button>
+          <button class="success" id="exportJSON">Exportar respaldo JSON</button>
+          <button id="importJSON">Importar respaldo JSON</button>
+          <input id="jsonFile" type="file" accept="application/json,.json" hidden />
+          <button id="selectVisible">Marcar visibles</button>
+          <button class="danger" id="clearChecks">Limpiar checks</button>
+        </div>
       </div>
     </div>
   </header>
@@ -70,7 +108,7 @@
       <div class="stat"><b id="pending">0</b><span>Pendientes visibles</span></div>
       <div class="stat"><b id="safe">0</b><span>Aptas visibles</span></div>
     </div>
-    <div class="note"><strong>Nota:</strong> los botones “YouTube Music” abren una búsqueda directa en <code>music.youtube.com</code> con artista + canción. Es más confiable que pegar links fijos, porque evita videos musicales, enlaces caídos, lives o versiones no disponibles por región. Para uso radial, confirma licencia/derechos y usa versiones clean/radio edit cuando aplique.</div>
+    <div class="note"><div><strong>Prioridad activa:</strong> la lista se ordena automáticamente con las canciones ✅ aptas primero. Los botones “YouTube Music” abren una búsqueda directa en <code>music.youtube.com</code> con artista + canción, evitando depender de links fijos a videos, lives o versiones no disponibles por región. Para uso radial, confirma licencia/derechos y usa clean/radio edit cuando aplique.</div></div>
     <div class="table-wrap">
       <table>
         <thead><tr><th class="check">OK</th><th>Canción</th><th class="artist-col">Artista</th><th>Género</th><th class="year-col">Año</th><th>Clean</th><th>Link</th></tr></thead>
@@ -343,7 +381,28 @@ const tracks = [
   {g:'Afro / pop tropical / dance latino',t:'Cosita Linda',a:'Elena Rose, Justin Quiles',y:'2025',s:'🟡',n:'Buscar clean/radio edit'},
   {g:'Afro / pop tropical / dance latino',t:'Amén Bebé',a:'Elena Rose',y:'2025',s:'✅',n:'Apta / revisar'},
   {g:'Afro / pop tropical / dance latino',t:'Top Diesel',a:'Beéle',y:'2025',s:'🟡',n:'Buscar clean/radio edit'},
-  {g:'Afro / pop tropical / dance latino',t:'X Ti',a:'Kapo, Feid',y:'2025',s:'🟡',n:'Buscar clean/radio edit'}
+  {g:'Afro / pop tropical / dance latino',t:'X Ti',a:'Kapo, Feid',y:'2025',s:'🟡',n:'Buscar clean/radio edit'},
+
+  {g:'Champeta / champeta urbana',t:'El Serrucho',a:'Mr. Black',y:'2013+',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Champeta / champeta urbana',t:'Fiesta en la Noche',a:'Mr. Black',y:'2013+',s:'✅',n:'Apta / revisar'},
+  {g:'Champeta / champeta urbana',t:'Bandida',a:'Mr. Black',y:'Recurrente',s:'🟠',n:'Tema adulto/sensual'},
+  {g:'Champeta / champeta urbana',t:'Te Daré Tiempo',a:'Mr. Black',y:'Recurrente',s:'✅',n:'Apta / revisar'},
+  {g:'Champeta / champeta urbana',t:'Apretaito Al PickUp',a:'Mr. Black',y:'Recurrente',s:'🟠',n:'Tema adulto/baile sensual'},
+  {g:'Champeta / champeta urbana',t:'La Invité a Bailar',a:'Kevin Florez',y:'2013/2020',s:'🟠',n:'Tema adulto/sensual; revisar clean'},
+  {g:'Champeta / champeta urbana',t:'La Cama',a:'Kevin Florez',y:'2019',s:'🟠',n:'Tema adulto; revisar clean'},
+  {g:'Champeta / champeta urbana',t:'Asómate a la Ventana',a:'Kevin Florez',y:'2021',s:'✅',n:'Apta / revisar'},
+  {g:'Champeta / champeta urbana',t:'Romántica Champeta',a:'Kevin Florez',y:'2023',s:'✅',n:'Apta / revisar'},
+  {g:'Champeta / champeta urbana',t:'Quién Dijo Miedo',a:'Kevin Florez',y:'2024',s:'✅',n:'Apta / revisar'},
+  {g:'Champeta / champeta urbana',t:'La Pupileta',a:'Bazurto All Stars',y:'2015/16',s:'✅',n:'Apta / revisar'},
+  {g:'Champeta / champeta urbana',t:'La Manguera',a:'Bazurto All Stars',y:'Recurrente',s:'🟠',n:'Revisar doble sentido'},
+  {g:'Champeta / champeta urbana',t:'El Bololó',a:'Bazurto All Stars',y:'Recurrente',s:'✅',n:'Apta / revisar'},
+  {g:'Champeta / champeta urbana',t:'Me Falla el Wifi',a:'Bazurto All Stars',y:'Recurrente',s:'✅',n:'Apta / revisar'},
+  {g:'Champeta / champeta urbana',t:'La Reina del Baile',a:'Bazurto All Stars',y:'Recurrente',s:'✅',n:'Apta / revisar'},
+  {g:'Champeta / champeta urbana',t:'Buscándote',a:'Twister El Rey',y:'2014+',s:'✅',n:'Apta / revisar'},
+  {g:'Champeta / champeta urbana',t:'La Espelucá',a:'Twister El Rey',y:'Recurrente',s:'🟡',n:'Buscar clean/radio edit'},
+  {g:'Champeta / champeta urbana',t:'Pégate',a:'Twister El Rey',y:'Recurrente',s:'🟠',n:'Tema de baile sensual; revisar'},
+  {g:'Champeta / champeta urbana',t:'El Imperio',a:'Zaider',y:'Recurrente',s:'✅',n:'Apta / revisar'},
+  {g:'Champeta / champeta urbana',t:'La Reina del Vacile',a:'Zaider',y:'Recurrente',s:'🟡',n:'Buscar clean/radio edit'}
 ];
 
 const stateKey='radio-maracaibo-checks-v1';
@@ -353,9 +412,23 @@ const tbody=$('tbody');
 function idFor(x){return btoa(unescape(encodeURIComponent(`${x.g}|${x.t}|${x.a}`))).replace(/=+$/,'')}
 function ytUrl(x){return `https://music.youtube.com/search?q=${encodeURIComponent(`${x.a} ${x.t}`)}`}
 function badgeClass(s){return s==='✅'?'ok':s==='🟡'?'warn':s==='🟠'?'adult':'avoid'}
+function statusSlug(s){return s==='✅'?'safe':s==='🟡'?'warn':s==='🟠'?'adult':'avoid'}
 function populateGenres(){[...new Set(tracks.map(x=>x.g))].sort().forEach(g=>{const o=document.createElement('option');o.value=g;o.textContent=g;$('genre').appendChild(o)})}
-function filtered(){const q=$('q').value.trim().toLowerCase(), g=$('genre').value, s=$('status').value, c=$('checked').value;return tracks.filter(x=>{const id=idFor(x);const hit=`${x.t} ${x.a} ${x.g} ${x.y} ${x.n}`.toLowerCase().includes(q);return hit&&(!g||x.g===g)&&(!s||x.s===s)&&(!c||(c==='done'?checks[id]:!checks[id]))})}
-function row(x){const id=idFor(x);return `<tr><td class="check"><input type="checkbox" data-id="${id}" ${checks[id]?'checked':''}></td><td><div class="song">${esc(x.t)}</div><div class="small mobile-artist">${esc(x.a)}</div></td><td class="artist-col artist">${esc(x.a)}</td><td><span class="small">${esc(x.g)}</span></td><td class="year-col small">${esc(x.y)}</td><td><span class="badge ${badgeClass(x.s)}">${x.s} ${esc(x.n)}</span></td><td><div class="row-actions"><a class="music" target="_blank" rel="noopener" href="${ytUrl(x)}">YouTube Music</a><button class="copybtn" data-copy="${escAttr(`${x.t} - ${x.a} | ${ytUrl(x)}`)}">Copiar</button></div></td></tr>`}
+function filtered(){
+  const q=$('q').value.trim().toLowerCase(), g=$('genre').value, s=$('status').value, c=$('checked').value;
+  const priority={'✅':0,'🟡':1,'🟠':2,'🔴':3};
+  return tracks.filter(x=>{
+    const id=idFor(x);
+    const hit=`${x.t} ${x.a} ${x.g} ${x.y} ${x.n}`.toLowerCase().includes(q);
+    return hit&&(!g||x.g===g)&&(!s||x.s===s)&&(!c||(c==='done'?checks[id]:!checks[id]))
+  }).sort((a,b)=>
+    (priority[a.s]??9)-(priority[b.s]??9) ||
+    a.g.localeCompare(b.g,'es') ||
+    a.a.localeCompare(b.a,'es') ||
+    a.t.localeCompare(b.t,'es')
+  )
+}
+function row(x){const id=idFor(x);return `<tr class="status-${statusSlug(x.s)}"><td class="check" data-label="OK"><input type="checkbox" data-id="${id}" ${checks[id]?'checked':''}></td><td data-label="Canción"><div class="song">${esc(x.t)}</div><div class="small mobile-artist">${esc(x.a)}</div></td><td class="artist-col artist" data-label="Artista">${esc(x.a)}</td><td data-label="Género"><span class="small">${esc(x.g)}</span></td><td class="year-col small" data-label="Año">${esc(x.y)}</td><td data-label="Clean"><span class="badge ${badgeClass(x.s)}">${x.s} ${esc(x.n)}</span></td><td data-label="Link"><div class="row-actions"><a class="music" target="_blank" rel="noopener" href="${ytUrl(x)}">YouTube Music</a><button class="copybtn" data-copy="${escAttr(`${x.t} - ${x.a} | ${ytUrl(x)}`)}">Copiar</button></div></td></tr>`}
 function esc(s){return String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
 function escAttr(s){return esc(s).replace(/'/g,'&#39;')}
 function render(){const data=filtered();tbody.innerHTML=data.length?data.map(row).join(''):`<tr><td colspan="7" class="empty">No hay resultados con esos filtros.</td></tr>`;$('total').textContent=data.length;$('done').textContent=data.filter(x=>checks[idFor(x)]).length;$('pending').textContent=data.filter(x=>!checks[idFor(x)]).length;$('safe').textContent=data.filter(x=>x.s==='✅').length}
@@ -364,13 +437,46 @@ function toCSV(data){const head=['checked','genero','cancion','artista','anio','
 function toMarkdown(data){return data.map(x=>`- [${checks[idFor(x)]?'x':' '}] ${x.t} — ${x.a} (${x.g}, ${x.y}) ${x.s} ${x.n}\n  ${ytUrl(x)}`).join('\n')}
 async function copy(text){await navigator.clipboard.writeText(text);toast('Copiado al portapapeles')}
 function toast(msg){const n=document.createElement('div');n.textContent=msg;n.style.cssText='position:fixed;right:18px;bottom:18px;background:#1b2230;border:1px solid #5cc8ff;color:#e8eefc;padding:12px 14px;border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.35);z-index:99';document.body.appendChild(n);setTimeout(()=>n.remove(),1600)}
-function download(name,text){const blob=new Blob([text],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();URL.revokeObjectURL(a.href)}
+function download(name,text,type='text/plain;charset=utf-8'){const blob=new Blob([text],{type});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();URL.revokeObjectURL(a.href)}
+function exportBackup(){
+  const payload={
+    app:'checklist-youtube-music-maracaibo',
+    version:1,
+    exportedAt:new Date().toISOString(),
+    totalTracks:tracks.length,
+    checks
+  };
+  download('respaldo-checklist-radio-maracaibo.json',JSON.stringify(payload,null,2),'application/json;charset=utf-8');
+  toast('Respaldo JSON exportado');
+}
+function importBackupFile(file){
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const payload=JSON.parse(reader.result);
+      const imported=payload.checks&&typeof payload.checks==='object'?payload.checks:payload;
+      const validIds=new Set(tracks.map(idFor));
+      const next={...checks};
+      Object.entries(imported).forEach(([id,value])=>{if(validIds.has(id)&&value)next[id]=true});
+      checks=next;
+      localStorage.setItem(stateKey,JSON.stringify(checks));
+      render();
+      toast('Respaldo JSON importado');
+    }catch(err){
+      alert('No pude importar el JSON. Verifica que sea un respaldo válido de esta app.');
+    }
+  };
+  reader.readAsText(file);
+}
 ['q','genre','status','checked'].forEach(id=>$(id).addEventListener('input',render));
 tbody.addEventListener('change',e=>{if(e.target.matches('input[type=checkbox]')){checks[e.target.dataset.id]=e.target.checked;if(!e.target.checked)delete checks[e.target.dataset.id];save()}});
 tbody.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(b)copy(b.dataset.copy)});
 $('copyVisible').onclick=()=>copy(toMarkdown(filtered()));
 $('copyCSV').onclick=()=>copy(toCSV(filtered()));
-$('downloadCSV').onclick=()=>download('checklist-youtube-music-radio-maracaibo.csv',toCSV(filtered()));
+$('downloadCSV').onclick=()=>download('checklist-youtube-music-radio-maracaibo.csv',toCSV(filtered()),'text/csv;charset=utf-8');
+$('exportJSON').onclick=exportBackup;
+$('importJSON').onclick=()=>$('jsonFile').click();
+$('jsonFile').onchange=e=>{const file=e.target.files[0];if(file)importBackupFile(file);e.target.value=''};
 $('selectVisible').onclick=()=>{filtered().forEach(x=>checks[idFor(x)]=true);save()};
 $('clearChecks').onclick=()=>{if(confirm('¿Limpiar todos los checks guardados?')){checks={};save()}};
 populateGenres();render();
